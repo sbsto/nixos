@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  imports = [ ../nix ../neovim ];
+  imports = [ ./modules/nix ./modules/neovim ./modules/zsh ];
   programs = {
     git = {
       enable = true;

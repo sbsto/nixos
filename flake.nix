@@ -20,6 +20,7 @@
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
             home-manager.users.sbsto = import ./home/nixos.nix;
+            home-manager.backupFileExtension = "backup";
           }
         ];
       };
