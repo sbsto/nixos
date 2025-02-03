@@ -17,13 +17,6 @@
       terminal = "screen-256color";
       escapeTime = 0;
     };
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
   };
 
   home.packages = with pkgs; [

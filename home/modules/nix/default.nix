@@ -1,25 +1,21 @@
 { config, pkgs, lib, ... }:
 let
   inherit (pkgs.stdenv) isDarwin;
-  dotfiles = "${config.home.homeDirectory}/dotfiles";
+  dotfiles = "${config.home.homeDirectory}/dotfiles"; # adjust path to match your setup
 in
 {
   home = {
-    packages = with pkgs; [
-      nixpkgs-fmt
-    ];
-
     shellAliases = rec {
       nixpkgs = "nix repl '<nixpkgs>'";
-      update = "nix flake update";
+      update = "nix flake update ${dotfiles}";
       rebuild =
         if isDarwin
-        then "darwin-rebuild build --flake '.#alphabook'"
-        else "nixos-rebuild build --flake '.#nixos'";
+        then "darwin-rebuild build --flake ${dotfiles}#alphabook"
+        else "nixos-rebuild build --flake ${dotfiles}#nixos";
       switch =
         if isDarwin
-        then "darwin-rebuild switch --flake '.#alphabook'"
-        else "sudo nixos-rebuild switch --flake '.#nixos'";
+        then "darwin-rebuild switch --flake ${dotfiles}#alphabook"
+        else "sudo nixos-rebuild switch --flake ${dotfiles}#nixos";
     };
   };
 
