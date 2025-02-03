@@ -2,8 +2,8 @@
   imports = [ ./shared.nix ];
 
   home = {
-    username = "sbsto";
-    homeDirectory = "/Users/sbsto";
+    username = "sambrownstone";
+    homeDirectory = "/Users/sambrownstone";
     stateVersion = "24.05";
   };
 
