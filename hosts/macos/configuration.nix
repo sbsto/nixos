@@ -3,6 +3,14 @@
     ../shared.nix
   ];
 
+  users.users.sambrownstone = {
+    isNormalUser = true;
+    name = "sambrownstone";
+    home = "/Users/sambrownstone";
+    description = "Existing macOS user";
+    extraGroups = [ "wheel" ];  # Grants sudo access, among other potential privileges.
+  };
+
   services.nix-daemon.enable = true;
 
   environment.systemPackages = [ ];
