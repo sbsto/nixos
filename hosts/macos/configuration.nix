@@ -4,10 +4,8 @@
   ];
 
   users.users.sambrownstone = {
-    isNormalUser = true;
     name = "sambrownstone";
     home = "/Users/sambrownstone";
-    description = "Existing macOS user";
   };
 
   services.nix-daemon.enable = true;
