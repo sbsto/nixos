@@ -33,7 +33,7 @@
           ./hosts/macos/configuration.nix
           home-manager.darwinModules.home-manager
           {
-            home-manager.users.sbsto = import ./home/macos.nix;
+            home-manager.users.sambrownstone = import ./home/macos.nix;
           }
         ];
       };
