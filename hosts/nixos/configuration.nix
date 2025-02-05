@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  fetchGitHubKeys = username:
-    builtins.filter (k: k != "")
-      (builtins.splitString "\n"
-        (builtins.fetchurl ("https://github.com/" + username + ".keys")));
 in {
   imports = [
     ./hardware-configuration.nix
@@ -53,15 +49,15 @@ in {
         isNormalUser = true;
         description = "sbsto";
         extraGroups = [ "networkmanager" "wheel" ];
-        openssh.authorizedKeys.keys = fetchGitHubKeys "sbsto";
+        openssh.authorizedKeys.keys = let 
+		authorizedKeys = pkgs.fetchUrl {
+			url = "https://github.com/sbsto.keys";
+			sha256 = "";
+		};
+		in pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
+	};
       };
 
-      wannabehero = {
-        isNormalUser = true;
-        description = "wannabehero";
-        extraGroups = [ "networkmanager" "wheel" ];
-        openssh.authorizedKeys.keys = fetchGitHubKeys "wannabehero";
-      };
     };
 
     defaultUserShell = pkgs.zsh;
