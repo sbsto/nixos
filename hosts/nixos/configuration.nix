@@ -1,4 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+
+let
+  fetchGitHubKeys = username:
+    builtins.filter (k: k != "")
+      (builtins.splitString "\n"
+        (builtins.fetchurl ("https://github.com/" + username + ".keys")));
+in {
   imports = [
     ./hardware-configuration.nix
     ../shared.nix
@@ -40,16 +47,25 @@
 
   security.rtkit.enable = true;
 
-  users.users.sbsto = {
-    isNormalUser = true;
-    description = "sbsto";
-    extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMrcGV0DyjkVnF86pxY6YBsgz3noXePzrXYt3K3ijliY"
-    ];
-  };
+  users = {
+    users = {
+      sbsto = {
+        isNormalUser = true;
+        description = "sbsto";
+        extraGroups = [ "networkmanager" "wheel" ];
+        openssh.authorizedKeys.keys = fetchGitHubKeys "sbsto";
+      };
 
-  users.defaultUserShell = pkgs.zsh;
+      wannabehero = {
+        isNormalUser = true;
+        description = "wannabehero";
+        extraGroups = [ "networkmanager" "wheel" ];
+        openssh.authorizedKeys.keys = fetchGitHubKeys "wannabehero";
+      };
+    };
+
+    defaultUserShell = pkgs.zsh;
+  };
 
   system.stateVersion = "24.05";
 }
