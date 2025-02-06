@@ -1,9 +1,9 @@
 { config, pkgs, ... }: {
-  imports = [ ./shared.nix ];
+  imports = [ ../shared.nix ];
 
   home = {
-    username = "sbsto";
-    homeDirectory = "/home/sbsto";
+    username = "tonytarizzo";
+    homeDirectory = "/home/tonytarizzo";
     stateVersion = "24.05";
   };
 

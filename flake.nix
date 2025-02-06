@@ -8,7 +8,7 @@
     darwin.url = "github:LnL7/nix-darwin";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... }: {
+  outputs = { nixpkgs, home-manager, darwin, ... }: {
 
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
@@ -19,8 +19,11 @@
           {
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
-            home-manager.users.sbsto = import ./home/nixos.nix;
-            home-manager.backupFileExtension = "backup";
+            home-manager.backupFileExtension = "backup2";
+
+            home-manager.users.sbsto = import ./home/nixos/sbsto.nix;
+            home-manager.users.tonytarizzo = import ./home/nixos/tonytarizzo.nix;
+            home-manager.users.wannabehero = import ./home/nixos/wannabehero.nix;
           }
         ];
       };

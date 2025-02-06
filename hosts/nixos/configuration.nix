@@ -7,6 +7,8 @@ in {
     ../shared.nix
   ];
 
+  programs.zsh.enable = true;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -49,15 +51,43 @@ in {
         isNormalUser = true;
         description = "sbsto";
         extraGroups = [ "networkmanager" "wheel" ];
-        openssh.authorizedKeys.keys = let 
-		authorizedKeys = pkgs.fetchUrl {
-			url = "https://github.com/sbsto.keys";
-			sha256 = "";
-		};
-		in pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
-	};
+        openssh.authorizedKeys.keys =
+          let
+            authorizedKeys = pkgs.fetchurl {
+              url = "https://github.com/sbsto.keys";
+              sha256 = "sha256-eEXtCji/atYRRQLsriBf0AZkvNt7eVdFzUYoBJGRYH0";
+            };
+          in
+          pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
       };
 
+      tonytarizzo = {
+        isNormalUser = true;
+        description = "tonytarizzo";
+        extraGroups = [];
+        openssh.authorizedKeys.keys =
+          let
+            authorizedKeys = pkgs.fetchurl {
+              url = "https://github.com/tonytarizzo.keys";
+              sha256 = "";
+            };
+          in
+          pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
+      };
+
+      wannabehero = {
+        isNormalUser = true;
+        description = "wannabehero";
+        extraGroups = [ "wheel" ];
+        openssh.authorizedKeys.keys =
+          let
+            authorizedKeys = pkgs.fetchurl {
+              url = "https://github.com/wannabehero.keys";
+              sha256 = "";
+            };
+          in
+          pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
+      };
     };
 
     defaultUserShell = pkgs.zsh;
