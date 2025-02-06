@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  shared = import ./shared.nix { inherit config pkgs; };
+  shared = import ../shared.nix { inherit config pkgs; };
 in
 {
   imports = [ ../shared.nix ];
