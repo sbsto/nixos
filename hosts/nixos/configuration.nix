@@ -7,6 +7,7 @@
   ];
 
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -68,7 +69,7 @@
           let
             authorizedKeys = pkgs.fetchurl {
               url = "https://github.com/tonytarizzo.keys";
-              sha256 = "";
+              sha256 = "sha256-P38Gq8WUyuwuT9LCq2Tv0zNSpxfT6fOzNCUbHYvWsrw=";
             };
           in
           pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
@@ -82,7 +83,7 @@
           let
             authorizedKeys = pkgs.fetchurl {
               url = "https://github.com/wannabehero.keys";
-              sha256 = "";
+              sha256 = "sha256-3EQ/XH4jxhakUR1tYAQmSqFJl23pHdi4lCrGZ1m6uYI=";
             };
           in
           pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);

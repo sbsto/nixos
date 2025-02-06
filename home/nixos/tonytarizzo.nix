@@ -15,8 +15,4 @@ in
   programs.git = shared.programs.git // {
     userName = "tonytarizzo";
   };
-
-  programs = {
-    home-manager.enable = true;
-  };
 }

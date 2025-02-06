@@ -15,6 +15,8 @@
       terminal = "screen-256color";
       escapeTime = 0;
     };
+
+    home-manager.enable = true;
   };
 
   home.packages = with pkgs; [

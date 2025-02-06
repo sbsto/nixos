@@ -16,8 +16,4 @@ in
     userName = "sbsto";
     userEmail = "brownstone@hey.com";
   };
-
-  programs = {
-    home-manager.enable = true;
-  };
 }
