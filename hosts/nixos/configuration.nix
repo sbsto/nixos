@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
-let
-in {
+{
   imports = [
     ./hardware-configuration.nix
     ../shared.nix
@@ -64,7 +63,7 @@ in {
       tonytarizzo = {
         isNormalUser = true;
         description = "tonytarizzo";
-        extraGroups = [];
+        extraGroups = [ ];
         openssh.authorizedKeys.keys =
           let
             authorizedKeys = pkgs.fetchurl {

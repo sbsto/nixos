@@ -3,8 +3,6 @@
   programs = {
     git = {
       enable = true;
-      userName = "sbsto";
-      userEmail = "brownstone@hey.com";
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = true;
