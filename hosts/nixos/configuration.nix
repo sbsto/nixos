@@ -55,7 +55,7 @@
           let
             authorizedKeys = pkgs.fetchurl {
               url = "https://github.com/sbsto.keys";
-              sha256 = "sha256-eEXtCji/atYRRQLsriBf0AZkvNt7eVdFzUYoBJGRYH0";
+              sha256 = "sha256-1bd3w36a0px9n8mzqyjbjfi9gyxk4yx2gjyvvfc80p6qknrmy0fc";
             };
           in
           pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
