@@ -7,7 +7,7 @@ let
       owner = "sbsto";
       repo = "nvim";
       rev = "main"; 
-      sha256 = "sha256-6GrbURcKy84/bXH0JOs4RHdEyrx5LF/Q3TNhY6avTT8="; 
+      sha256 = "sha256-ZvD5dZ32eGRN4MNerV91T3n7GAW815abfgmUQwfu8ME="; 
     };
     installPhase = ''
       mkdir -p $out
