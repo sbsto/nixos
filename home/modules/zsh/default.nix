@@ -6,7 +6,7 @@ let
       owner = "sbsto";
       repo = "starship";
       rev = "main";
-      sha256 = "sha256-H8Z38wPDsE8z8VFz97uHXqvtDOqg2t5eBwRv04QUpu8=";
+      sha256 = "sha256-6GrbURcKy84/bXH0JOs4RHdEyrx5LF/Q3TNhY6avTT8=";
     };
     installPhase = ''
       mkdir -p $out
@@ -21,7 +21,7 @@ in
     enable = true;
     shellAliases = { };
 
-    initExtra = ''
+    initContent = ''
       # Initialize starship prompt. (Requires that the starship binary is installed)
       eval "$(starship init zsh)"
       export STARSHIP_CONFIG=~/.config/starship/config.toml
