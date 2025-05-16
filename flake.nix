@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, darwin, ... }: {
+  outputs = { nixpkgs, home-manager, ... }: {
 
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
