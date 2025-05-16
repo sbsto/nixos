@@ -6,7 +6,7 @@ let
       owner = "sbsto";
       repo = "starship";
       rev = "main";
-      sha256 = "sha256-6GrbURcKy84/bXH0JOs4RHdEyrx5LF/Q3TNhY6avTT8=";
+      sha256 = "sha256-YIDb9kSAOATnymO3aBgZ9TRDkw0D3df89Xm5oxFmqN8=";
     };
     installPhase = ''
       mkdir -p $out
