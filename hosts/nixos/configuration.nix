@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -51,7 +51,14 @@
         isNormalUser = true;
         description = "sbsto";
         extraGroups = [ "networkmanager" "wheel" ];
-        openssh.authorizedKeys.github = [ "sbsto" ];
+        openssh.authorizedKeys.keys =
+          let
+            authorizedKeys = pkgs.fetchurl {
+              url = "https://github.com/sbsto.keys";
+              sha256 = "sha256-zAFfs53YXICY29vLJ7ons/uXopNLevwrsqlfoMzgo60=";
+            };
+          in
+          pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
       };
 
       tonytarizzo = {

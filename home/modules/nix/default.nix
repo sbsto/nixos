@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 let
   inherit (pkgs.stdenv) isDarwin;
-  dotfiles = "${config.home.homeDirectory}/dotfiles"; # adjust path to match your setup
+  dotfiles = "${config.home.homeDirectory}/dotfiles";
 in
 {
   home = {
-    shellAliases = rec {
+    shellAliases = {
       nixpkgs = "nix repl '<nixpkgs>'";
       update = "nix flake update ${dotfiles}";
       rebuild =
